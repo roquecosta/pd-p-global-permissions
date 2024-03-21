@@ -1,0 +1,114 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h5>
+            <i class="fa fa-users"></i></i>Gerenciamento de Permissões Globais
+            <a class="btn btn-light btn-sm float-right" href="/app/center/card.nl?sc=-29&whence="><i class="fa fa-home text-info"></i>Home do Netsuite</a>
+        </h5>
+        <hr />
+    </div>
+</div>
+<div class="row" style="margin-top: 20px;">
+    <div class="col-sm-12">
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card shadow-sm">
+                            <div class="card-header button" data-toggle="collapse" data-target="#filter-container" aria-expanded="true" aria-controls="filter-container">
+                                <i class="fa fa-filter text-secondary"></i>Filtros
+                            </div>
+                            <div class="card-body collapse show" id="filter-container">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <input class="form-control autocomplete" placeholder="Carregando subsidiarias" id="subsidiary-filter"
+                                                data-restlet-script-id="customscript_pd_pgp_subsidiary"
+                                                data-restlet-deployment-id="customdeploy_pd_pgp_subsidiary"
+                                                data-placeholder="Subsidiaria"
+                                                data-autocomplete-max-items="10"
+                                            />
+                                        </div>
+                                    </div>                                                                              
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <input class="form-control autocomplete" placeholder="Carregando as funções" id="role-filter"
+                                                data-restlet-script-id="customscript_pd_pgp_role"
+                                                data-restlet-deployment-id="customdeploy_pd_pgp_role"
+                                                data-filter-elements-selector="#role-filter"
+                                                data-placeholder="Função"
+                                                data-autocomplete-max-items="10"
+                                            />
+                                        </div>
+                                    </div>   
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="Nome do funcionário" id="employee-filter"/>
+                                        </div>
+                                    </div> 
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <hr style="margin-top: 0px;"/>
+                                        <button type="button" class="btn btn-sm btn-light" onclick="applyFilters(this)"><i class="fa fa-filter text-success"></i>Aplicar Filtros</button>
+                                        <button type="button" class="btn btn-sm btn-light" onclick="clearFilters(this)"><i class="fa fa-eraser text-warning"></i>Limpar Filtros</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <button type="button" class="btn btn-light btn-sm float-left" onclick="openDefaultRole()">
+                            <i class="fa fa-address-book"></i>
+                            Abrir Papel Genérico
+                        </button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="button" class="btn btn-light btn-sm float-right" onclick="showConfirmActionDialog(this)">
+                            <i class="fa fa-check text-success"></i>
+                            Aplicar Permissões Globais
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table table-sm table-striped table-hover" id="employees"
+                            style="margin-bottom: 0px; margin-top: 20px;" data-unique-id="id">
+                            <tbody>
+                                <tr>
+                                    <td colspan="100">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h6>
+                                                    <span class="empty-table-message">
+                                                        <i class="fa fa-exclamation text-info"></i>
+                                                        Carregando usuários
+                                                    </span>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<template id="confirm-modal-template">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <span class="empty-table-message">
+                    Confirmar aplicação das Permissões Globais
+                </span>
+            </div>
+        </div>
+    </div>
+</template>
